@@ -1,0 +1,4 @@
+git+https://github.com/finegrain-ai/refiners@299217f45ab788bb7e670bcafb37a789a054461f
+gradio_imageslider==0.0.20
+spaces==0.28.3
+numpy<2.0.0
