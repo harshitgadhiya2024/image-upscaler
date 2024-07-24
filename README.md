@@ -4,9 +4,27 @@ emoji: 🖼️🪄
 colorFrom: pink
 colorTo: indigo
 sdk: gradio
-sdk_version: 4.38.1
+sdk_version: 4.39.0
 app_file: src/app.py
 pinned: false
+short_description: Clarity AI Upscaler Reproduction
+license: mit
+models:
+- refiners/juggernaut.reborn
+- refiners/controlnet.sd15.tile
+- philz1337x/upscaler
+- philz1337x/embeddings
+- philz1337x/loras
+tags:
+- enhancer
+- upscaler
+- clarity
+- refiners
+- image-to-image
+- stable-diffusion
+- sd1.5
+- art
+- juggernaut
 ---
 
 # Enhancer
