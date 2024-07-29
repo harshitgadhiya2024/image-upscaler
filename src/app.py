@@ -21,16 +21,23 @@ from refiners.foundationals.latent_diffusion import Solver, solvers
 from enhancer import ESRGANUpscaler, ESRGANUpscalerCheckpoints
 
 TITLE = """
-<h1 align="center">Image Enhancer, implemented using refiners</h1>
+<center>
+  <h1 align="center">
+    Image Enhancer, Powered By Refiners
+  </h1>
 
-<p>
-  <center>
+  <p>
+    We reproduced the Clarity Image Enhancer on top of Refiners, our micro-framework for simple foundation model adaptation.
+    Feel free to star Refiners on GitHub if you like it!
+  </p>
+
+  <p>
     <a style="font-size: 1.25rem;" href="https://blog.finegrain.ai/posts/reproducing-clarity-upscaler/" target="_blank">[blog post]</a>
     <a style="font-size: 1.25rem;" href="https://github.com/finegrain-ai/refiners" target="_blank">[refiners]</a>
     <a style="font-size: 1.25rem;" href="https://github.com/philz1337x/clarity-upscaler" target="_blank">[clarity-upscaler]</a>
     <a style="font-size: 1.25rem;" href="https://finegrain.ai/" target="_blank">[finegrain]</a>
-  </center>
-</p>
+  </p>
+</center>
 """
 
 CHECKPOINTS = ESRGANUpscalerCheckpoints(

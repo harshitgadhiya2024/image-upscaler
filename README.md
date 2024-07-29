@@ -1,5 +1,5 @@
 ---
-title: Enhancer
+title: Finegrain Image Enhancer
 emoji: 🖼️🪄
 colorFrom: pink
 colorTo: indigo
