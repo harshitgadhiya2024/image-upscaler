@@ -24,7 +24,7 @@ TITLE = """
 <center>
 
   <h1 style="font-size: 1.5rem; margin-bottom: 0.5rem;">
-    Image Enhancer, Powered By Refiners
+    Image Enhancer Powered By Refiners
   </h1>
 
   <div style="display: flex; align-items: center; justify-content: center; gap: 0.5rem; margin-bottom: 0.5rem; font-size: 1.25rem; flex-wrap: wrap;">
