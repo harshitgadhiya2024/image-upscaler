@@ -27,21 +27,19 @@ TITLE = """
     Image Enhancer, Powered By Refiners
   </h1>
 
-  <div style="display: flex; align-items: center; justify-content: center; gap: 0.5rem; margin-bottom: 0.5rem; font-size: 1.25rem;">
+  <div style="display: flex; align-items: center; justify-content: center; gap: 0.5rem; margin-bottom: 0.5rem; font-size: 1.25rem; flex-wrap: wrap;">
     <a href="https://blog.finegrain.ai/posts/reproducing-clarity-upscaler/" target="_blank">[blog post]</a>
     <a href="https://github.com/finegrain-ai/refiners" target="_blank">[refiners]</a>
     <a href="https://github.com/philz1337x/clarity-upscaler" target="_blank">[clarity-upscaler]</a>
     <a href="https://finegrain.ai/" target="_blank">[finegrain]</a>
   </div>
 
-  <div style="display: flex; align-items: center; justify-content: center; gap: 0.5rem;">
-    <p style="margin: 0;">
-      If you enjoyed this space, please consider starring Refiners on GitHub!
-    </p>
+  <p style="margin: 0;">
+    If you enjoyed this space, please consider starring Refiners on GitHub!
     <a href="https://github.com/finegrain-ai/refiners" target="_blank">
-      <img src="https://img.shields.io/github/stars/finegrain-ai/refiners?style=social"/>
+      <img src="https://img.shields.io/github/stars/finegrain-ai/refiners?style=social" style="display: inline; vertical-align: middle;" />
     </a>
-  </div>
+  </p>
 
 </center>
 """
