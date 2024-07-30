@@ -22,21 +22,27 @@ from enhancer import ESRGANUpscaler, ESRGANUpscalerCheckpoints
 
 TITLE = """
 <center>
-  <h1 align="center">
+
+  <h1 style="font-size: 1.5rem; margin-bottom: 0.5rem;">
     Image Enhancer, Powered By Refiners
   </h1>
 
-  <p>
-    We reproduced the Clarity Image Enhancer on top of Refiners, our micro-framework for simple foundation model adaptation.
-    Feel free to star Refiners on GitHub if you like it!
-  </p>
+  <div style="display: flex; align-items: center; justify-content: center; gap: 0.5rem; margin-bottom: 0.5rem; font-size: 1.25rem;">
+    <a href="https://blog.finegrain.ai/posts/reproducing-clarity-upscaler/" target="_blank">[blog post]</a>
+    <a href="https://github.com/finegrain-ai/refiners" target="_blank">[refiners]</a>
+    <a href="https://github.com/philz1337x/clarity-upscaler" target="_blank">[clarity-upscaler]</a>
+    <a href="https://finegrain.ai/" target="_blank">[finegrain]</a>
+  </div>
 
-  <p>
-    <a style="font-size: 1.25rem;" href="https://blog.finegrain.ai/posts/reproducing-clarity-upscaler/" target="_blank">[blog post]</a>
-    <a style="font-size: 1.25rem;" href="https://github.com/finegrain-ai/refiners" target="_blank">[refiners]</a>
-    <a style="font-size: 1.25rem;" href="https://github.com/philz1337x/clarity-upscaler" target="_blank">[clarity-upscaler]</a>
-    <a style="font-size: 1.25rem;" href="https://finegrain.ai/" target="_blank">[finegrain]</a>
-  </p>
+  <div style="display: flex; align-items: center; justify-content: center; gap: 0.5rem;">
+    <p style="margin: 0;">
+      If you enjoyed this space, please consider starring Refiners on GitHub!
+    </p>
+    <a href="https://github.com/finegrain-ai/refiners" target="_blank">
+      <img src="https://img.shields.io/github/stars/finegrain-ai/refiners?style=social"/>
+    </a>
+  </div>
+
 </center>
 """
 
