@@ -47,28 +47,28 @@ TITLE = """
 CHECKPOINTS = ESRGANUpscalerCheckpoints(
     unet=Path(
         hf_hub_download(
-            repo_id="refiners/juggernaut.reborn",
-            filename="unet.safetensors",
-            revision="948510aaf4c8e8e9b32b5a7c25736422253f7b93",
+            repo_id="refiners/juggernaut.reborn.sd1_5.unet",
+            filename="model.safetensors",
+            revision="347d14c3c782c4959cc4d1bb1e336d19f7dda4d2",
         )
     ),
     clip_text_encoder=Path(
         hf_hub_download(
-            repo_id="refiners/juggernaut.reborn",
-            filename="text_encoder.safetensors",
-            revision="948510aaf4c8e8e9b32b5a7c25736422253f7b93",
+            repo_id="refiners/juggernaut.reborn.sd1_5.text_encoder",
+            filename="model.safetensors",
+            revision="744ad6a5c0437ec02ad826df9f6ede102bb27481",
         )
     ),
     lda=Path(
         hf_hub_download(
-            repo_id="refiners/juggernaut.reborn",
-            filename="autoencoder.safetensors",
-            revision="948510aaf4c8e8e9b32b5a7c25736422253f7b93",
+            repo_id="refiners/juggernaut.reborn.sd1_5.autoencoder",
+            filename="model.safetensors",
+            revision="3c1aae3fc3e03e4a2b7e0fa42b62ebb64f1a4c19",
         )
     ),
     controlnet_tile=Path(
         hf_hub_download(
-            repo_id="refiners/controlnet.sd15.tile",
+            repo_id="refiners/controlnet.sd1_5.tile",
             filename="model.safetensors",
             revision="48ced6ff8bfa873a8976fa467c3629a240643387",
         )

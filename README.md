@@ -10,8 +10,10 @@ pinned: false
 short_description: Clarity AI Upscaler Reproduction
 license: mit
 models:
-- refiners/juggernaut.reborn
-- refiners/controlnet.sd15.tile
+- refiners/juggernaut.reborn.sd1_5.unet
+- refiners/juggernaut.reborn.sd1_5.autoencoder
+- refiners/juggernaut.reborn.sd1_5.text_encoder
+- refiners/controlnet.sd1_5.tile
 - philz1337x/upscaler
 - philz1337x/embeddings
 - philz1337x/loras
@@ -22,9 +24,9 @@ tags:
 - refiners
 - image-to-image
 - stable-diffusion
+- juggernaut
 - sd1.5
 - art
-- juggernaut
 ---
 
 # Enhancer
