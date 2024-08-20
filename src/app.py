@@ -38,13 +38,14 @@ TITLE = """
     Turn low resolution images into high resolution versions with insane generated details.
   </p>
 
-  <p style="margin: 0;">
+  <p>
     This space is powered by Refiners, our open source micro-framework for simple foundation model adaptation.
     If you enjoyed it, please consider starring Refiners on GitHub!
-    <a href="https://github.com/finegrain-ai/refiners" target="_blank">
-      <img src="https://img.shields.io/github/stars/finegrain-ai/refiners?style=social" style="display: inline; vertical-align: middle;" />
-    </a>
   </p>
+
+  <a href="https://github.com/finegrain-ai/refiners" target="_blank">
+    <img src="https://img.shields.io/github/stars/finegrain-ai/refiners?style=social" />
+  </a>
 
 </center>
 """
