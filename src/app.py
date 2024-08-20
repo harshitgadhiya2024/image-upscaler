@@ -28,14 +28,19 @@ TITLE = """
   </h1>
 
   <div style="display: flex; align-items: center; justify-content: center; gap: 0.5rem; margin-bottom: 0.5rem; font-size: 1.25rem; flex-wrap: wrap;">
-    <a href="https://blog.finegrain.ai/posts/reproducing-clarity-upscaler/" target="_blank">[blog post]</a>
-    <a href="https://github.com/finegrain-ai/refiners" target="_blank">[refiners]</a>
-    <a href="https://github.com/philz1337x/clarity-upscaler" target="_blank">[clarity-upscaler]</a>
-    <a href="https://finegrain.ai/" target="_blank">[finegrain]</a>
+    <a href="https://blog.finegrain.ai/posts/reproducing-clarity-upscaler/" target="_blank">[Blog Post]</a>
+    <a href="https://github.com/finegrain-ai/refiners" target="_blank">[Refiners]</a>
+    <a href="https://finegrain.ai/" target="_blank">[Finegrain]</a>
+    <a href="https://huggingface.co/spaces/finegrain/finegrain-object-eraser" target="_blank">[Finegrain Object Eraser]</a>
   </div>
 
+  <p>
+    Turn low resolution images into high resolution versions with insane generated details.
+  </p>
+
   <p style="margin: 0;">
-    If you enjoyed this space, please consider starring Refiners on GitHub!
+    This space is powered by Refiners, our open source micro-framework for simple foundation model adaptation.
+    If you enjoyed it, please consider starring Refiners on GitHub!
     <a href="https://github.com/finegrain-ai/refiners" target="_blank">
       <img src="https://img.shields.io/github/stars/finegrain-ai/refiners?style=social" style="display: inline; vertical-align: middle;" />
     </a>
