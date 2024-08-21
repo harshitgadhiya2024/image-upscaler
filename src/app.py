@@ -35,7 +35,7 @@ TITLE = """
   </div>
 
   <p>
-    Turn low resolution images into high resolution versions with insane generated details.
+    Turn low resolution images into high resolution versions with added generated details (your image will be modified).
   </p>
 
   <p>
