@@ -1,4 +1,4 @@
-git+https://github.com/finegrain-ai/refiners@299217f45ab788bb7e670bcafb37a789a054461f
+git+https://github.com/finegrain-ai/refiners@a5d3c2971b84f6faa4762b1cf5a07f4f812bb1f5
 gradio_imageslider==0.0.20
 spaces==0.28.3
 numpy<2.0.0

@@ -1,17 +1,8 @@
-import spaces
-import torch
-
-
-# see https://huggingface.co/spaces/zero-gpu-explorers/README/discussions/85
-def my_arange(*args, **kwargs):
-    return torch.arange(*args, **kwargs)
-
-
-torch.arange = my_arange
-
 from pathlib import Path
 
 import gradio as gr
+import spaces
+import torch
 from gradio_imageslider import ImageSlider
 from huggingface_hub import hf_hub_download
 from PIL import Image
