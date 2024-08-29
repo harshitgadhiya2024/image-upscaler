@@ -6,13 +6,14 @@ import torch
 from gradio_imageslider import ImageSlider
 from huggingface_hub import hf_hub_download
 from PIL import Image
-from pillow_heif import register_heif_opener
+import pillow_heif
 from refiners.fluxion.utils import manual_seed
 from refiners.foundationals.latent_diffusion import Solver, solvers
 
 from enhancer import ESRGANUpscaler, ESRGANUpscalerCheckpoints
 
-register_heif_opener()
+pillow_heif.register_heif_opener()
+pillow_heif.register_avif_opener()
 
 TITLE = """
 <center>
