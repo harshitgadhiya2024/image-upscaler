@@ -27,6 +27,7 @@ TITLE = """
     <a href="https://github.com/finegrain-ai/refiners" target="_blank">[Refiners]</a>
     <a href="https://finegrain.ai/" target="_blank">[Finegrain]</a>
     <a href="https://huggingface.co/spaces/finegrain/finegrain-object-eraser" target="_blank">[Finegrain Object Eraser]</a>
+    <a href="https://huggingface.co/spaces/finegrain/finegrain-object-cutter" target="_blank">[Finegrain Object Cutter]</a>
   </div>
 
   <p>
