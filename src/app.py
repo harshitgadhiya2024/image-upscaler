@@ -1,12 +1,12 @@
 from pathlib import Path
 
 import gradio as gr
+import pillow_heif
 import spaces
 import torch
 from gradio_imageslider import ImageSlider
 from huggingface_hub import hf_hub_download
 from PIL import Image
-import pillow_heif
 from refiners.fluxion.utils import manual_seed
 from refiners.foundationals.latent_diffusion import Solver, solvers
 
@@ -22,12 +22,24 @@ TITLE = """
     Image Enhancer Powered By Refiners
   </h1>
 
-  <div style="display: flex; align-items: center; justify-content: center; gap: 0.5rem; margin-bottom: 0.5rem; font-size: 1.25rem; flex-wrap: wrap;">
+  <div style="
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    margin-bottom: 0.5rem;
+    font-size: 1.25rem;
+    flex-wrap: wrap;
+  ">
     <a href="https://blog.finegrain.ai/posts/reproducing-clarity-upscaler/" target="_blank">[Blog Post]</a>
     <a href="https://github.com/finegrain-ai/refiners" target="_blank">[Refiners]</a>
     <a href="https://finegrain.ai/" target="_blank">[Finegrain]</a>
-    <a href="https://huggingface.co/spaces/finegrain/finegrain-object-eraser" target="_blank">[Finegrain Object Eraser]</a>
-    <a href="https://huggingface.co/spaces/finegrain/finegrain-object-cutter" target="_blank">[Finegrain Object Cutter]</a>
+    <a href="https://huggingface.co/spaces/finegrain/finegrain-object-eraser" target="_blank">
+        [Finegrain Object Eraser]
+    </a>
+    <a href="https://huggingface.co/spaces/finegrain/finegrain-object-cutter" target="_blank">
+        [Finegrain Object Cutter]
+    </a>
   </div>
 
   <p>
@@ -108,11 +120,6 @@ CHECKPOINTS = ESRGANUpscalerCheckpoints(
     },
 )
 
-LORA_SCALES = {
-    "more_details": 0.5,
-    "sdxl_render": 1.0,
-}
-
 # initialize the enhancer, on the cpu
 DEVICE_CPU = torch.device("cpu")
 DTYPE = torch.bfloat16 if torch.cuda.is_bf16_supported() else torch.float32
@@ -154,7 +161,7 @@ def process(
         tile_size=(tile_height, tile_width),
         denoise_strength=denoise_strength,
         num_inference_steps=num_inference_steps,
-        loras_scale=LORA_SCALES,
+        loras_scale={"more_details": 0.5, "sdxl_render": 1.0},
         solver_type=solver_type,
     )
 
