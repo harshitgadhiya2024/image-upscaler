@@ -18,29 +18,19 @@ pillow_heif.register_avif_opener()
 TITLE = """
 <center>
 
+  <div style="
+    background-color: #ff9100;
+    color: #1f2937;
+    padding: 0.5rem 1rem;
+    font-size: 1.25rem;
+  ">
+    🚀 NEW: all the Finegrain spaces are now reunited under the
+    <a href="https://editor.finegrain.ai?utm_source=hf&utm_campaign=image-enhancer" target="_blank">Finegrain Editor</a>. Give it a shot! 🚀
+  </div>
+
   <h1 style="font-size: 1.5rem; margin-bottom: 0.5rem;">
     Image Enhancer Powered By Refiners
   </h1>
-
-  <div style="
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 0.5rem;
-    margin-bottom: 0.5rem;
-    font-size: 1.25rem;
-    flex-wrap: wrap;
-  ">
-    <a href="https://blog.finegrain.ai/posts/reproducing-clarity-upscaler/" target="_blank">[Blog Post]</a>
-    <a href="https://github.com/finegrain-ai/refiners" target="_blank">[Refiners]</a>
-    <a href="https://finegrain.ai/" target="_blank">[Finegrain]</a>
-    <a href="https://huggingface.co/spaces/finegrain/finegrain-object-eraser" target="_blank">
-        [Finegrain Object Eraser]
-    </a>
-    <a href="https://huggingface.co/spaces/finegrain/finegrain-object-cutter" target="_blank">
-        [Finegrain Object Cutter]
-    </a>
-  </div>
 
   <p>
     Turn low resolution images into high resolution versions with added generated details (your image will be modified).
