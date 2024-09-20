@@ -25,7 +25,7 @@ TITLE = """
     font-size: 1.25rem;
   ">
     🚀 NEW: all the Finegrain spaces are now reunited under the
-    <a href="https://editor.finegrain.ai?utm_source=hf&utm_campaign=image-enhancer" target="_blank">Finegrain Editor</a>. Give it a shot! 🚀
+    <a href="https://editor.finegrain.ai/signup?utm_source=hf&utm_campaign=image-enhancer" target="_blank">Finegrain Editor</a>. Give it a shot! 🚀
   </div>
 
   <h1 style="font-size: 1.5rem; margin-bottom: 0.5rem;">
