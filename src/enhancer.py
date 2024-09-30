@@ -26,7 +26,6 @@ class ESRGANUpscaler(MultiUpscaler):
     ) -> None:
         super().__init__(checkpoints=checkpoints, device=device, dtype=dtype)
         self.esrgan = UpscalerESRGAN(checkpoints.esrgan, device=self.device, dtype=self.dtype)
-        self.esrgan.to(device=device, dtype=dtype)
 
     def to(self, device: torch.device, dtype: torch.dtype):
         self.esrgan.to(device=device, dtype=dtype)
