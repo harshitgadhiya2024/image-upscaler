@@ -24,8 +24,8 @@ TITLE = """
     padding: 0.5rem 1rem;
     font-size: 1.25rem;
   ">
-    🚀 For an optimized version of this space, try out the 
-    <a href="https://finegrain.ai/editor?utm_source=hf&utm_campaign=image-enhancer" target="_blank">Finegrain Editor</a>! You'll find there all our AI tools made available in a nice UI. 🚀
+    🥳 We're launching our API! It's way faster and more accurate, so if you liked this space, you'll definitely
+    wanna check it out. <a href="https://finegrain.ai/?utm_source=hf&utm_campaign=image-enhancer" target="_blank">Try it now</a>! 🚀
   </div>
 
   <h1 style="font-size: 1.5rem; margin-bottom: 0.5rem;">
