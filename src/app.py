@@ -25,7 +25,9 @@ TITLE = """
     font-size: 1.25rem;
   ">
     🥳 We're launching our API! It's way faster and more accurate, so if you liked this space, you'll definitely
-    wanna check it out. <a href="https://finegrain.ai/?utm_source=hf&utm_campaign=image-enhancer" target="_blank">Try it now for free</a> using our Editor app! 🚀
+    wanna check it out.
+    <a href="https://finegrain.ai/?utm_source=hf&utm_campaign=image-enhancer" target="_blank">Try it now for free</a>
+    using our Editor app! 🚀
   </div>
 
   <h1 style="font-size: 1.5rem; margin-bottom: 0.5rem;">
