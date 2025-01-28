@@ -32,7 +32,7 @@ TITLE = """
 </p>
 <p>
   <a href="https://discord.gg/zFKg5TjXub" target="_blank">[Discord]</a>
-  <a href="https://github.com/finegrain-ai/refiners" target="_blank">[GitHub]</a>
+  <a href="https://github.com/finegrain-ai" target="_blank">[GitHub]</a>
 </p>
 """
 
