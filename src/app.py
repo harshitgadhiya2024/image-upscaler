@@ -16,37 +16,24 @@ pillow_heif.register_heif_opener()
 pillow_heif.register_avif_opener()
 
 TITLE = """
-<center>
-
-  <div style="
-    background-color: #ff9100;
-    color: #1f2937;
-    padding: 0.5rem 1rem;
-    font-size: 1.25rem;
-  ">
-    🥳 We're launching our API! It's way faster and more accurate than this space, so check it out!
-    <a href="https://finegrain.ai/?utm_source=hf&utm_campaign=image-enhancer" target="_blank">Try it now for free</a>
-    using our Editor app! 🚀
-  </div>
-
-  <h1 style="font-size: 1.5rem; margin-bottom: 0.5rem;">
-    Image Enhancer Powered By Refiners
-  </h1>
-
-  <p>
-    Turn low resolution images into high resolution versions with added generated details (your image will be modified).
-  </p>
-
-  <p>
-    This space is powered by Refiners, our open source micro-framework for simple foundation model adaptation.
-    If you enjoyed it, please consider starring Refiners on GitHub!
-  </p>
-
-  <a href="https://github.com/finegrain-ai/refiners" target="_blank">
-    <img src="https://img.shields.io/github/stars/finegrain-ai/refiners?style=social" />
-  </a>
-
-</center>
+<div style="
+  background-color: #f08c00;
+  color: #212529;
+  padding: 0.5rem 1rem;
+  font-size: 1.25rem;
+" align="center">
+  🥳 We're launching our API! It's way faster and more accurate than this space, so check it out!
+  <a href="https://finegrain.ai/?utm_source=hf&utm_campaign=image-enhancer" target="_blank">Try it now for free</a>
+  using our Editor app! 🚀
+</div>
+<h1>Finegrain Image Enhancer</h1>
+<p>
+  Turn low resolution images into high resolution versions with added generated details (your image will be modified).
+</p>
+<p>
+  <a href="https://discord.gg/zFKg5TjXub" target="_blank">[Discord]</a>
+  <a href="https://github.com/finegrain-ai/refiners" target="_blank">[GitHub]</a>
+</p>
 """
 
 CHECKPOINTS = ESRGANUpscalerCheckpoints(
