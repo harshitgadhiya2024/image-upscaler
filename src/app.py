@@ -187,6 +187,24 @@ def enhance_photo():
     except Exception as e:
         return {"message": "data is not present"}
 
+@app.route("/download_photo/<folder_path_image>", methods=["GET"])
+def folder_store_path(folder_path_image):
+    """
+    In this route we can handling superadmin data
+    :return: superadmin template
+    """
+    try:
+        print(folder_path_image)
+        all_list = folder_path_image.split("***")
+        folder_path = all_list[0].replace("---", "/")
+        filename = all_list[1]
+        print(folder_path, filename)
+        return send_from_directory(folder_path, filename, as_attachment=True)
+
+    except Exception as e:
+        return {"message": "data is not present"}
+
+
 # from PIL import Image
 # human_image = Image.open("")
 # process(human_image, "", "", 42, 2, 0.6, 1.0, 6, 112, 144, 0.35, 18, "DDIM")
