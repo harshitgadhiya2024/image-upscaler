@@ -1,40 +1,51 @@
 from pathlib import Path
 
-import gradio as gr
 import pillow_heif
-import spaces
 import torch
-from gradio_imageslider import ImageSlider
 from huggingface_hub import hf_hub_download
 from PIL import Image
 from refiners.fluxion.utils import manual_seed
 from refiners.foundationals.latent_diffusion import Solver, solvers
+from flask import (flash, Flask, redirect, render_template, request,
+                   session, url_for, send_file, jsonify, send_from_directory)
+from flask_cors import CORS
+import uuid
+import os
+
+# create a flask app instance
+app = Flask(__name__)
+
+# Apply cors policy in our app instance
+CORS(app)
+
+# setup all config variable
+app.config["enviroment"] = "prod"
+app.config["SECRET_KEY"] = uuid.uuid4().hex
+
+# handling our application secure type like http or https
+secure_type = "http"
+
+UPLOAD_FOLDER = "static/uploads"
+if not os.path.exists(UPLOAD_FOLDER):
+    os.makedirs(UPLOAD_FOLDER)
+
+# allow only that image file extension
+ALLOWED_EXTENSIONS = {'png', 'jpg', 'jpeg', 'svg', 'webp'}
+
+def allowed_photos(filename):
+    """
+    checking file extension is correct or not
+
+    :param filename: file name
+    :return: True, False
+    """
+    return '.' in filename and filename.rsplit('.', 1)[1].lower() in ALLOWED_EXTENSIONS
+
 
 from enhancer import ESRGANUpscaler, ESRGANUpscalerCheckpoints
 
 pillow_heif.register_heif_opener()
 pillow_heif.register_avif_opener()
-
-TITLE = """
-<div style="
-  background-color: #f08c00;
-  color: #212529;
-  padding: 0.5rem 1rem;
-  font-size: 1.25rem;
-" align="center">
-  🥳 We're launching our API! It's way faster and more accurate than this space, so check it out!
-  <a href="https://finegrain.ai/?utm_source=hf&utm_campaign=image-enhancer" target="_blank">Try it now for free</a>
-  using our Editor app! 🚀
-</div>
-<h1>Finegrain Image Enhancer</h1>
-<p>
-  Turn low resolution images into high resolution versions with added generated details (your image will be modified).
-</p>
-<p>
-  <a href="https://discord.gg/zFKg5TjXub" target="_blank">[Discord]</a>
-  <a href="https://github.com/finegrain-ai" target="_blank">[GitHub]</a>
-</p>
-"""
 
 CHECKPOINTS = ESRGANUpscalerCheckpoints(
     unet=Path(
@@ -108,7 +119,6 @@ DEVICE = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 enhancer.to(device=DEVICE, dtype=DTYPE)
 
 
-@spaces.GPU
 def process(
     input_image: Image.Image,
     prompt: str = "masterpiece, best quality, highres",
@@ -146,132 +156,42 @@ def process(
     return (input_image, enhanced_image)
 
 
-with gr.Blocks() as demo:
-    gr.HTML(TITLE)
+@app.route("/stylic/enhance_photo", methods=["GET", "POST"])
+def enhance_photo():
+    """
+    In this route we can handling superadmin data
+    :return: superadmin template
+    """
+    try:
+        files_uploaded = []
+        folder_person_name = request.form.get("folder_name")
+        folder_image_store_path = f"static/uploads/{folder_person_name}"
+        os.makedirs(folder_image_store_path, exist_ok=True)
+        print("request are coming")
+        file1 = request.files.get("garment_file")
+        if file1 and file1.filename != "":
+            exten = file1.filename.split(".")[-1]
+            file1_path = os.path.join(folder_image_store_path, f"garment.{exten}")
+            file1.save(file1_path)
+            files_uploaded.append(file1_path.replace("\\", "/"))
+        print("upload garment successfully")
+        
+        from PIL import Image
+        human_image = Image.open(files_uploaded[0])
+        enhanced_image = process(human_image, "", "", 42, 2, 0.6, 1.0, 6, 112, 144, 0.35, 18, "DDIM")
+        output_folder_image_store_path = os.path.join(folder_image_store_path, "output_enhancer.jpg")
+        enhanced_image[1].save(output_folder_image_store_path)
+        response = {"status_code": 200, "data": {"output_file": f"http://139.84.138.54:80/download_photo/{folder_image_store_path.replace('/', '---')}***output_enhancer.jpg"}}
+        return response
 
-    with gr.Row():
-        with gr.Column():
-            input_image = gr.Image(type="pil", label="Input Image")
-            run_button = gr.ClearButton(components=None, value="Enhance Image")
-        with gr.Column():
-            output_slider = ImageSlider(label="Before / After")
-            run_button.add(output_slider)
+    except Exception as e:
+        return {"message": "data is not present"}
 
-    with gr.Accordion("Advanced Options", open=False):
-        prompt = gr.Textbox(
-            label="Prompt",
-            placeholder="masterpiece, best quality, highres",
-        )
-        negative_prompt = gr.Textbox(
-            label="Negative Prompt",
-            placeholder="worst quality, low quality, normal quality",
-        )
-        seed = gr.Slider(
-            minimum=0,
-            maximum=10_000,
-            value=42,
-            step=1,
-            label="Seed",
-        )
-        upscale_factor = gr.Slider(
-            minimum=1,
-            maximum=4,
-            value=2,
-            step=0.2,
-            label="Upscale Factor",
-        )
-        controlnet_scale = gr.Slider(
-            minimum=0,
-            maximum=1.5,
-            value=0.6,
-            step=0.1,
-            label="ControlNet Scale",
-        )
-        controlnet_decay = gr.Slider(
-            minimum=0.5,
-            maximum=1,
-            value=1.0,
-            step=0.025,
-            label="ControlNet Scale Decay",
-        )
-        condition_scale = gr.Slider(
-            minimum=2,
-            maximum=20,
-            value=6,
-            step=1,
-            label="Condition Scale",
-        )
-        tile_width = gr.Slider(
-            minimum=64,
-            maximum=200,
-            value=112,
-            step=1,
-            label="Latent Tile Width",
-        )
-        tile_height = gr.Slider(
-            minimum=64,
-            maximum=200,
-            value=144,
-            step=1,
-            label="Latent Tile Height",
-        )
-        denoise_strength = gr.Slider(
-            minimum=0,
-            maximum=1,
-            value=0.35,
-            step=0.1,
-            label="Denoise Strength",
-        )
-        num_inference_steps = gr.Slider(
-            minimum=1,
-            maximum=30,
-            value=18,
-            step=1,
-            label="Number of Inference Steps",
-        )
-        solver = gr.Radio(
-            choices=["DDIM", "DPMSolver"],
-            value="DDIM",
-            label="Solver",
-        )
+# from PIL import Image
+# human_image = Image.open("")
+# process(human_image, "", "", 42, 2, 0.6, 1.0, 6, 112, 144, 0.35, 18, "DDIM")
 
-    run_button.click(
-        fn=process,
-        inputs=[
-            input_image,
-            prompt,
-            negative_prompt,
-            seed,
-            upscale_factor,
-            controlnet_scale,
-            controlnet_decay,
-            condition_scale,
-            tile_width,
-            tile_height,
-            denoise_strength,
-            num_inference_steps,
-            solver,
-        ],
-        outputs=output_slider,
-    )
-
-    gr.Examples(
-        examples=[
-            "examples/kara-eads-L7EwHkq1B2s-unsplash.jpg",
-            "examples/clarity_bird.webp",
-            "examples/edgar-infocus-gJH8AqpiSEU-unsplash.jpg",
-            "examples/jeremy-wallace-_XjW3oN8UOE-unsplash.jpg",
-            "examples/karina-vorozheeva-rW-I87aPY5Y-unsplash.jpg",
-            "examples/karographix-photography-hIaOPjYCEj4-unsplash.jpg",
-            "examples/melissa-walker-horn-gtDYwUIr9Vg-unsplash.jpg",
-            "examples/ryoji-iwata-X53e51WfjlE-unsplash.jpg",
-            "examples/tadeusz-lakota-jggQZkITXng-unsplash.jpg",
-        ],
-        inputs=[input_image],
-        outputs=output_slider,
-        fn=process,
-        cache_examples="lazy",
-        run_on_click=False,
-    )
-
-demo.launch(share=False)
+if __name__ == '__main__':
+    app.run(host="0.0.0.0", port=80)
+    
+    
